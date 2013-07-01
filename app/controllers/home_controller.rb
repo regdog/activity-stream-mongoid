@@ -9,5 +9,7 @@ class HomeController < ApplicationController
       	@activities.concat(community.activities)
       end	
     end
+
+    @activities.sort_by!{|i| i.created_at}.reverse! unless @activities.empty?
   end
 end
