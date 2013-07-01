@@ -1,0 +1,16 @@
+%h1 #{@community.name}
+%p You can have the following operations
+
+%h3 All the articles
+%p
+  = link_to 'Create An Article', new_community_article_path(@community)
+%ul
+  - @community.articles.each do |a|
+    %li #{link_to a.title, [@community, a]}  
+%hr
+%h3 All the questions
+%p
+  = link_to 'Ask A Question', new_community_question_path(@community)
+%ul
+  - @community.questions.each do |q|
+    %li #{link_to q.title, [@community, q]}    

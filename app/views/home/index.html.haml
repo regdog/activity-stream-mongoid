@@ -1,4 +1,23 @@
 %h3 Home
+%h4 All Users
 - @users.each do |user|
   %p
     User: #{link_to user.name, user}
+%h4 All Communities   
+- if current_user
+  = link_to 'create community', new_community_path
+  %ul
+  - @communities.each do |c|
+    %li
+      Community: #{link_to c.name, c} 
+      - if c.users.include?(current_user)
+        #{link_to '退出', join_community_path(c)}
+      - else
+        #{link_to '加入', join_community_path(c)} 
+  %h4 My Communities Update
+  %ul
+  - @activities.each do |activity|
+    %li
+      - present activity, ActivityPresenter do |activity_presenter|
+        #{activity_presenter.text }   
+

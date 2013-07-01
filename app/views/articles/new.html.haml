@@ -1,0 +1,9 @@
+%h1 在#{@community.name}中添加文章
+= form_for :article, :url => {:action => "create"} do |f|
+  / = f.error_messages
+  %p
+    = f.text_field :title
+  %p
+    = f.text_area :body, :size => "60x12"
+  %p   
+    = f.submit "创建文章"  
