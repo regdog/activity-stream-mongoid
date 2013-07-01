@@ -11,6 +11,7 @@ gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
 gem 'mongoid'
+gem 'streama'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
